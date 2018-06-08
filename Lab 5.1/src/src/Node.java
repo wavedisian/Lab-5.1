@@ -2,7 +2,7 @@ package src;
 
 import java.util.*;
 
-public class Node implements Comparable<Node>{
+public class Node{
 	
 	private boolean c;
 	private String name;
@@ -20,6 +20,11 @@ public class Node implements Comparable<Node>{
 		this.children = children;
 	}
 	
+	public ArrayList<Node> getChildren()
+	{
+		return this.children;
+	}
+	
 	public void clear()
 	{
 		this.c = false;
@@ -30,11 +35,21 @@ public class Node implements Comparable<Node>{
 		return this.name;
 	}
 	
-	public int comparetTo()
+	public boolean equals(Node x)
+	{
+		return (this.name.equals(x.toString()));
+	}
 	
 	public boolean isChildOf(Node n)
 	{
 		for(Node x : children)
+		{
+			if(x.equals(n))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

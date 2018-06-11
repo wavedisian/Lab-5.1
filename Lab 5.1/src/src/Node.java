@@ -8,11 +8,10 @@ public class Node{
 	private String name;
 	private ArrayList<Node> children;
 	
-	public Node(String name, boolean c, ArrayList<Node> children)
+	public Node(String name, boolean c)
 	{
 		this.name = name;
 		this.c = c;
-		this.children = children;
 	}
 	
 	public void setChildren(ArrayList<Node> children)
@@ -30,6 +29,16 @@ public class Node{
 		this.c = false;
 	}
 	
+	public void check()
+	{
+		this.c = true;
+	}
+	
+	public boolean wasChecked()
+	{
+		return this.c;
+	}
+	
 	public String toString()
 	{
 		return this.name;
@@ -37,7 +46,14 @@ public class Node{
 	
 	public boolean equals(Node x)
 	{
-		return (this.name.equals(x.toString()));
+		if(this.name.compareTo(x.toString())==0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public boolean isChildOf(Node n)
